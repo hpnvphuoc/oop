@@ -15,6 +15,7 @@ void listBook::inputList(int numKind)
 	int tempPrice;
 	string tempPublisher;
 	int tempNumber;
+	string tempAuthor;
 	if (numKind != 0) {
 		for (int i = 0; i < numKind; i++) {
 			cout << "Sach " << i << endl;
@@ -36,7 +37,9 @@ void listBook::inputList(int numKind)
 			cin >> tempNumber;
 			cin.ignore();
 
-			list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber);
+			cout << "Tac gia: ";
+			cin >> tempAuthor;
+			list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber,tempAuthor);
 		}
 	}
 	else {
@@ -60,14 +63,17 @@ void listBook::inputList(int numKind)
 			cin >> tempNumber;
 			cin.ignore();
 
-			list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber);
+			cout << "Tac gia: ";
+			cin >> tempAuthor;
+
+			list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber,tempAuthor);
 		}
 	}
 	
 }
 
 void listBook::outputList() {
-	cout << "STT" << setw(10) << "IBSN" << setw(10) << "TEN" << setw(10) << "GIA" << setw(10) << "NXB" << setw(10) << "SO LUONG" <<setw(10)<<"TAC GIA" endl;
+	cout << "STT" << setw(10) << "IBSN" << setw(10) << "TEN" << setw(10) << "GIA" << setw(10) << "NXB" << setw(10) << "SO LUONG" <<setw(10)<<"TAC GIA"<< endl;
 	for (int i = 0; i < numKind; i++) {
 		cout <<left << setw(8) << i <<left<<setw(10)<<list[i].getIBSN() <<left<<setw(15) <<list[i].getName() <<left<<setw(15) <<list[i].getPrice() <<left<<setw(15)<<list[i].getPublisher()<<left<<setw(15)<<list[i].getNumber()<<left<<setw(15)<<list[i].getAuthor()<< endl;
 	}
@@ -96,7 +102,7 @@ int listBook::findBookByName(string name)
 int listBook::findBookByPublisher(string publiser)
 {
 	for (int i = 0; i < this->numKind; i++) {
-		if (this->list[i].getPublisher == publiser) {
+		if (this->list[i].getPublisher() == publiser) {
 			return i;
 		}
 	}
@@ -107,7 +113,7 @@ int listBook::findBookByPublisher(string publiser)
 int listBook::findBookByAuthor(string author)
 {
 	for (int i = 0; i < this->numKind; i++) {
-		if (this->list[i].getAuthor== author) {
+		if (this->list[i].getAuthor()== author) {
 			return i;
 		}
 	}

@@ -1,7 +1,7 @@
 #include "guest.h"
 void guest::findbook(listBook& l, string name)
 {
-	int index = l.search(name);
+	int index = l.findBookByName(name);
 	if (index!= -1) {
 		l.printElementI(index);
 	}

@@ -2,6 +2,7 @@
 #define BOOK_H_
 #include<iostream>
 #include<string>
+#include<fstream>
 using namespace std;
 class book
 {
@@ -9,12 +10,12 @@ private:
 	string IBSN;
 	string name;
 	int price;
-	string publisher;
+	int publisher;
 	int number;
-	string author;
+	int author;
 public:
 	book();
-	book(string IBSN,string name, int price,string publisher,int number,string author);
+	book(string IBSN,string name, int price,int publisher,int number,int author);
 	book(const book& book);
 
 	string getName();
@@ -24,7 +25,7 @@ public:
 	int getNumber();
 	string getAuthor();
 
-	void set(string IBSN, string name, int price, string publisher, int number,string author);
+	void set(string IBSN, string name, int price, int publisher, int number,int author);
 	
 	~book();
 };

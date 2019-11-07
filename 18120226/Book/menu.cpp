@@ -46,7 +46,7 @@ void menu::funRunMenu() {
 			cout << "Nhap ten sach can tim:" << endl;
 			cin.ignore();
 			getline(cin, tempName);
-			index = listBook.search(tempName);
+			index = listBook.findBookByName(tempName);
 			
 			if (index == -1) {
 				cout << "Khong tim thay sach";
