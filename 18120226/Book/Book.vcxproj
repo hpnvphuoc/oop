@@ -151,22 +151,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="admin.cpp" />
+    <ClCompile Include="author.cpp" />
     <ClCompile Include="bill.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="guest.cpp" />
     <ClCompile Include="listBill.cpp" />
     <ClCompile Include="listBook.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="publisher.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="admin.h" />
+    <ClInclude Include="author.h" />
     <ClInclude Include="bill.h" />
     <ClInclude Include="book.h" />
     <ClInclude Include="guest.h" />
     <ClInclude Include="listBill.h" />
     <ClInclude Include="listBook.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="publisher.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>

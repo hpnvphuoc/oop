@@ -5,10 +5,7 @@ user::user()
 	age = 0;
 	IsLogin = false;
 }
-int user::getRole()
-{
-	return role;
-}
+
 user::~user()
 {
 }
@@ -19,9 +16,6 @@ void user::login() {
 	getline(cin, username);
 	cout << "password: ";
 	getline(cin, password);
-	cout << "Tuoi: ";
-	cin >> age;
-	cout << this->username << " " << this->password << " " << this->age << endl;
 	IsLogin = true;
 }
 

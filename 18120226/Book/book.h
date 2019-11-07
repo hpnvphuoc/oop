@@ -11,9 +11,10 @@ private:
 	int price;
 	string publisher;
 	int number;
+	string author;
 public:
 	book();
-	book(string IBSN,string name, int price,string publisher,int number);
+	book(string IBSN,string name, int price,string publisher,int number,string author);
 	book(const book& book);
 
 	string getName();
@@ -21,8 +22,9 @@ public:
 	int getPrice();
 	string getPublisher();
 	int getNumber();
+	string getAuthor();
 
-	void set(string IBSN, string name, int price, string publisher, int number);
+	void set(string IBSN, string name, int price, string publisher, int number,string author);
 	
 	~book();
 };

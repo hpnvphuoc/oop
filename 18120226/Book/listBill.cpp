@@ -3,6 +3,7 @@
 listBill::listBill()
 {
 	list = NULL;
+	numBill = 0;
 }
 
 

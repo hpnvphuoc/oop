@@ -14,13 +14,16 @@ public:
 
 	void inputList(int numKind);
 	void outputList();
-	void printElementI(int index);
 	int getNumKind();
-	int search(string name);
 	bool deleteBook(int index);
 	void addBook(book&);
-	void findBook();
 	book getBookI(int index);
+
+	int findBookByName(string name);
+	int findBookByPublisher(string publiser);
+	int findBookByAuthor(string author);
+	void printElementI(int index);
+
 };
 
 #endif // !LIST_BOOK_H_
