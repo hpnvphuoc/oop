@@ -1,0 +1,4 @@
+3
+123,Harry Potter,100000,NXB Tre,100,NXB Tre
+124,Chi Pheo,50000,NXB DHQG,200,NXB DHQG
+125,Truyen Kieu,30000,NXB Giao Duc,500,NXB Giao Duc
