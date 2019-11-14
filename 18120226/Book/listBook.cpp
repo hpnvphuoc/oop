@@ -16,8 +16,7 @@ void listBook::inputList(int numKind)
 	string tempPublisher;
 	int tempNumber;
 	string tempAuthor;
-	if (numKind != 0) {
-		for (int i = 0; i < numKind; i++) {
+	for (int i = 0; i < numKind; i++) {
 			cout << "Sach " << i << endl;
 			cin.ignore();
 			cout << "Ma sach: ";
@@ -31,33 +30,7 @@ void listBook::inputList(int numKind)
 			cin.ignore();
 
 			cout << "Nha xuat ban: ";
-			getline(cin, tempPublisher);
-
-			cout << "So luong: ";
-			cin >> tempNumber;
-			cin.ignore();
-
-			cout << "Tac gia: ";
-			cin >> tempAuthor;
-			list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber,tempAuthor);
-		}
-	}
-	else {
-		for (int i = 0; i < numKind; i++) {
-			cout << "Sach " << i << endl;
-			cin.ignore();
-			cout << "Ma sach: ";
-			getline(cin, tempIBSN);
-
-			cout << "Ten: ";
-			getline(cin, tempName);
-
-			cout << "Gia sach: ";
-			cin >> tempPrice;
-			cin.ignore();
-
-			cout << "Nha xuat ban: ";
-			getline(cin, tempPublisher);
+			cin>> tempPublisher;
 
 			cout << "So luong: ";
 			cin >> tempNumber;
@@ -68,20 +41,19 @@ void listBook::inputList(int numKind)
 
 			list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber,tempAuthor);
 		}
-	}
-	
 }
+	
 
 void listBook::outputList() {
-	cout << "STT" << setw(10) << "IBSN" << setw(10) << "TEN" << setw(10) << "GIA" << setw(10) << "NXB" << setw(10) << "SO LUONG" <<setw(10)<<"TAC GIA"<< endl;
+	cout << "STT" << setw(9) << "IBSN" << setw(9) << "TEN" << setw(15) << "GIA" << setw(24) << "NHA XUAT BAN" << setw(15) << "SO LUONG" <<setw(15)<<"TAC GIA"<< endl;
 	for (int i = 0; i < numKind; i++) {
-		cout <<left << setw(8) << i <<left<<setw(10)<<list[i].getIBSN() <<left<<setw(15) <<list[i].getName() <<left<<setw(15) <<list[i].getPrice() <<left<<setw(15)<<list[i].getPublisher()<<left<<setw(15)<<list[i].getNumber()<<left<<setw(15)<<list[i].getAuthor()<< endl;
+		cout <<left << setw(8) << i <<left<<setw(10)<<list[i].getIBSN() <<left<<setw(15) <<list[i].getName() <<left<<setw(15) <<list[i].getPrice() <<left<<setw(20)<<list[i].getPublisher()<<left<<setw(15)<<list[i].getNumber()<<left<<setw(5)<<list[i].getAuthor()<< endl;
 	}
 }
 void listBook::printElementI(int index)
 {
-	cout << "STT" << setw(10) << "IBSN" << setw(10) << "TEN" << setw(10) << "GIA" << setw(10) << "NXB" << setw(10) << "SO LUONG" << endl;
-	cout << left << setw(8) << index << left << setw(10) << list[index].getIBSN() << left << setw(15) << list[index].getName() << left << setw(15) << list[index].getPrice() << left << setw(15) << list[index].getPublisher() << left << setw(15) << list[index].getNumber() << left << setw(15) << list[index].getAuthor() << endl;
+	cout <<setw(8)<< "STT" << setw(10) << "IBSN" << setw(15) << "TEN" << setw(15) << "GIA" << setw(20) << "NHA XUAT BAN" << setw(15) << "SO LUONG" << setw(15) << "TAC GIA" << endl;
+	cout << left << setw(8) << index << left << setw(10) << list[index].getIBSN() << left << setw(15) << list[index].getName() << left << setw(15) << list[index].getPrice() << left << setw(20) << list[index].getPublisher() << left << setw(15) << list[index].getNumber() << left << setw(5) << list[index].getAuthor() << endl;
 }
 int listBook::getNumKind()
 {
@@ -145,7 +117,9 @@ void listBook::addBook(book &b) {
 		temp[i] = list[i];
 	}
 	temp[numKind - 1] = b;
-	delete[]list;
+	for (int i = 0; i < numKind-1; i++) {
+		list[i].~book();
+	}
 	list = temp;
 
 }
@@ -156,4 +130,51 @@ book listBook::getBookI(int index)
 }
 listBook::~listBook()
 {
+}
+
+string cutstring(string& s) {
+	int pos = s.find(',');
+	string a;
+	a = s.substr(0, pos);
+	s.erase(0, pos + 1);
+	return a;
+}
+
+void listBook::readListBookFromFile()
+{
+	string tempNumkind;
+	string tempBook;
+	string tempIBSN;
+	string tempName;
+	int tempPrice;
+	string tempPublisher;
+	int tempNumber;
+	string tempAuthor;
+	fstream f;
+	f.open("listBook.txt", ios::in);
+	getline(f, tempNumkind);
+	numKind = stoi(tempNumkind);
+	this->list = new book[numKind];
+	for(int i=0;i<numKind;i++){
+		getline(f,tempBook);
+		tempIBSN = cutstring(tempBook);
+		tempName = cutstring(tempBook);
+		tempPrice = stoi(cutstring(tempBook));
+		tempPublisher = cutstring(tempBook);
+		tempNumber = stoi(cutstring(tempBook));
+		tempAuthor = cutstring(tempBook);
+		list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber, tempAuthor);
+	}
+	f.close();
+}
+
+void listBook::writeListBookToFile()
+{
+	fstream f;
+	f.open("listbook.txt", ios::out);
+	f <<numKind<<endl;
+	for (int i = 0; i < numKind; i++) {
+		f << list[i].getIBSN() << "," << list[i].getName() << "," << list[i].getPrice() << "," << list[i].getPublisher() << "," << list[i].getNumber() << "," << list[i].getPublisher() << endl;
+	}
+	f.close();
 }

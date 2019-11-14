@@ -4,9 +4,9 @@ book::book()
 	this->IBSN = "";
 	this->name = "";
 	this->price = 0;
-	this->publisher = 0;
+	this->publisher = "";
 	this->number = 0;
-	this->author = 0;
+	this->author = "";
 	
 }
 
@@ -15,13 +15,13 @@ book::~book()
 	this->IBSN = "";
 	this->name = "";
 	this->price = 0;
-	this->publisher = 0;
+	this->publisher = "";
 	this->number = 0; 
-	this->author = 0;
+	this->author = "";
 }
 
 
-book::book(string IBSN,string name,int price,int publisher,int number,int author)
+book::book(string IBSN,string name,int price, string publisher,int number, string author)
 {
 	this->name = name;
 	this->IBSN = IBSN;
@@ -56,10 +56,6 @@ int book::getPrice() {
 
 string book::getPublisher()
 {
-	fstream f;
-	f.open("publisher.txt", ios::out);
-	getline(f)
-	f.close();
 	return publisher;
 }
 
@@ -69,7 +65,7 @@ int book::getNumber() {
 string book::getAuthor() {
 	return author;
 }
-void book::set(string IBSN, string name, int price, int publisher, int number,int author) {
+void book::set(string IBSN, string name, int price, string publisher, int number, string author) {
 	this->name = name;
 	this->IBSN = IBSN;
 	this->price = price;

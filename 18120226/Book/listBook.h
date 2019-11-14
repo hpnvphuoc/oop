@@ -2,7 +2,6 @@
 #ifndef LISTBOOK_H_
 #define LISTBOOK_H_
 #include<iomanip>
-
 class listBook
 {
 private:
@@ -11,6 +10,8 @@ private:
 public:
 	listBook();
 	~listBook();
+	void readListBookFromFile();
+	void writeListBookToFile();
 
 	void inputList(int numKind);
 	void outputList();

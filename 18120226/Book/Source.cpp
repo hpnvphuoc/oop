@@ -1,4 +1,6 @@
 ﻿#include"menu.h"
+#include<fstream>
+
 void main() {
 	menu breakfast;
 	breakfast.funRunMenu();
