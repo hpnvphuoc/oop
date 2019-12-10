@@ -7,7 +7,7 @@ book::book()
 	this->publisher = "";
 	this->number = 0;
 	this->author = "";
-	
+	this->isBlock = 0;
 }
 
 book::~book()
@@ -18,6 +18,7 @@ book::~book()
 	this->publisher = "";
 	this->number = 0; 
 	this->author = "";
+	this->isBlock = false;
 }
 
 
@@ -30,7 +31,6 @@ book::book(string IBSN,string name,int price, string publisher,int number, strin
 	this->price = price;
 	this->number = number;
 	this->author = author;
-
 }
 
 book::book(const book& book) {
@@ -65,7 +65,19 @@ int book::getNumber() {
 string book::getAuthor() {
 	return author;
 }
-void book::set(string IBSN, string name, int price, string publisher, int number, string author) {
+int book::IsBlock()
+{
+	return isBlock;
+}
+void book::Block(int role)
+{
+	isBlock = role;
+}
+void book::UnBlock()
+{
+	isBlock = 0;
+}
+void book::set(string IBSN, string name, int price, string publisher, int number, string author,bool isBlock) {
 	this->name = name;
 	this->IBSN = IBSN;
 	this->price = price;
@@ -73,6 +85,32 @@ void book::set(string IBSN, string name, int price, string publisher, int number
 	this->price = price;
 	this->number = number;
 	this->author = author;
+	this->isBlock = isBlock;
+}
+
+void book::CreateBook() {
+
+	cout << "Ma sach: ";
+	cin.ignore();
+	getline(cin,IBSN);
+
+	cout << "Ten: ";
+	getline(cin, name);
+
+	cout << "Gia sach: ";
+	cin >> price;
+	cin.ignore();
+
+	cout << "Nha xuat ban: ";
+	getline(cin, publisher);
+
+	cout << "So luong: ";
+	cin >> number;
+	cin.ignore();
+
+	cout << "Tac gia: ";
+	getline(cin, author);
+
 }
 
 

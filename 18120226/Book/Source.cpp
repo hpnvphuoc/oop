@@ -1,11 +1,14 @@
-﻿#include"menu.h"
-#include<fstream>
-
+﻿#include"process.h"
+void print(int a, bool b = 0) {
+	cout << a;
+	cout << b;
+}
 void main() {
-	menu breakfast;
-	breakfast.funRunMenu();
+
+	process a;
+	a.LoadData();
+	a.Process();
+
 	system("Pause");
 }
 
-//error
-//Khi them delete []list vao listBill hoặc listBook thì bị lỗi vùng nhớ

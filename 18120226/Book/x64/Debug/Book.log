@@ -1,3 +1,2 @@
-﻿  Source.cpp
-E:\HocTap\Code\oop\18120226\Book\Source.cpp(4,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+﻿  bill.cpp
   Book.vcxproj -> E:\HocTap\Code\oop\18120226\x64\Debug\Book.exe

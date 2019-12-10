@@ -1,0 +1,10 @@
+9
+hshsh,admin,admin,admin,1
+1ab25,nxbtre,12345,Tre,2
+sdhfk,namcao,12345,Nam Cao,3
+dfshk,user,12345,Author,4
+1ab25,tuphap,12345,Tu Phap,2
+sdhfk,xuanquynh,12345,Xuan Quynh,3
+sdhfk,xuandieu,12345,Xuan Dieu,3
+sdjs,user,user,user,4
+0,0,0,0,0

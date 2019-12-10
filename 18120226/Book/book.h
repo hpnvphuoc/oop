@@ -13,6 +13,7 @@ private:
 	string publisher;
 	int number;
 	string author;
+	int isBlock;//1: admin, 2: publisher,3: author,4:user 
 public:
 	book();
 	~book();
@@ -25,9 +26,13 @@ public:
 	string getPublisher();
 	int getNumber();
 	string getAuthor();
+	int IsBlock();
 
-	void set(string IBSN, string name, int price, string publisher, int number,string author);
+	void Block(int role);
+	void UnBlock();
+	void set(string IBSN, string name, int price, string publisher, int number,string author,bool isBlock);
 	
+	void CreateBook();
 };
 #endif
 

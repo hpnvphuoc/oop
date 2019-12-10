@@ -1,15 +1,14 @@
 #pragma once
-#include<iostream>
-using namespace std;
-class author
+#include"account.h"
+class author :public account
 {
 private:
-	string username;
-	string password;
-	string name;
 public:
 	author();
 	~author();
+	void CheckBook(listBook& list);
+	void GetBook(listBook& list);
+
 };
 
 //Them xoa sua sach cua minh

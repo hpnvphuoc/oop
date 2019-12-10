@@ -1,35 +1,29 @@
 #include "guest.h"
-guest::guest() {
-	username = "";
-	password = "";
-	isLogin = false;
+int guest::FindBookByName(listBook& list, string name) {
+	int index=-1;
+	vector<int> temp = list.findBookByName(name);
+		if (temp.size() > 1) {
+						cout << "Vui long nhap ma sach can tim";
+						string tempIBSN;
+						getline(cin, tempIBSN);
+						for (int i = 0; i < temp.size(); i++) {
+							if (tempIBSN == list.getBookI(temp[i]).getIBSN()) {
+								index = temp[i];
+								break;
+							}
+						}
+					}
+		else {
+						if (temp.size() == 1) {
+							index = temp[0];
+							list.printElementI(index);
+						}
+						else {
+							index = -1;
+							cout << "Khong tim thay sach";
+						}
+					}
+	return index;
 }
-guest::~guest() {
-	username = "";
-	password = "";
-	isLogin = false;
-}
-bool guest::IsLogin()
-{
-	return isLogin;
-}
-void guest::generateID()
-{
-	string box = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefjhijklmnopqrstuvwxyz0123456789";
-	int length = box.length();
-	for (int i = 0; i < 5; i++)
-		{
-			ID[i] = box[rand() % length ];
-		}
-}
-void guest::login() {
-	cin.ignore();
-	cout << "username: ";
-	getline(cin, username);
-	cout << "password: ";
-	getline(cin, password);
-	isLogin = true;
-}
-
 
 

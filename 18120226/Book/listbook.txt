@@ -1,4 +1,39 @@
-3
-123,Harry Potter,100000,NXB Tre,100,NXB Tre
-124,Chi Pheo,50000,NXB DHQG,200,NXB DHQG
-125,Truyen Kieu,30000,NXB Giao Duc,500,NXB Giao Duc
+38
+123,Harry Potter,100000,Tre,100,J.K.Rowling,0
+125,Truyen Kieu,30000,Giao Duc,500,Nguyen Du,0
+124,Chi Pheo,45000,Tre,300,Nam Cao,1
+5594,Chi Pheo,591000,Tre,688,Nam Cao,3
+9636,Song Mon,699000,Giao Duc,856,Nam Cao,0
+5625,Doi Thua,559000,Lao Dong,943,Nam Cao,1
+9489,Giang Sang,238000,Hoi Nha Van,477,Nam Cao,0
+8177,Doi Mat,671000,Tu Phap,647,Nam Cao,0
+6702,Lao Hac,301000,Tre,809,Nam Cao,0
+5445,Ngheo,349000,Giao Duc,927,Nam Cao,0
+9686,Trang sang,888000,Lao Dong,478,Nam Cao,0
+5892,Dieu van,884000,Hoi Nha Van,860,Nam Cao,0
+9532,Mot cai chet,207000,Tu Phap,490,Vu Trong Phung,0
+7574,Rua hon,246000,Tre,762,Vu Trong Phung,0
+6307,Long tu ai,840000,Giao Duc,700,Vu Trong Phung,0
+5405,Di san khi,121000,Lao Dong,569,Vu Trong Phung,0
+2020,Mau me,164000,Hoi Nha Van,475,Vu Trong Phung,0
+8575,Tu do,478000,Tu Phap,595,Vu Trong Phung,0
+9070,Cai hang rao,683000,Tre,511,Vu Trong Phung,0
+6282,Nguoi co quyen,999000,Giao Duc,517,Vu Trong Phung,0
+1382,Bai Thu Nam,29000,Lao Dong,899,Xuan Dieu,0
+8950,Moi Yeu,171000,Hoi Nha Van,126,Xuan Dieu,0
+8309,Phoi Trai,467000,Tu Phap,760,Xuan Dieu,0
+1923,Dai Kho,490000,Tre,194,Xuan Dieu,0
+9339,Chi O Long Ta,757000,Giao Duc,486,Xuan Dieu,0
+8539,Giuc Gia,727000,Lao Dong,540,Xuan Dieu,0
+7534,Buoi Chieu,646000,Hoi Nha Van,447,Xuan Dieu,0
+2550,Tang Ban Bay Gio,313000,Tu Phap,639,Xuan Dieu,0
+1912,Xuan Rung,12000,Tre,317,Xuan Dieu,0
+7830,Hu Vo,182000,Giao Duc,562,Xuan Dieu,0
+3313,Tinh Co,332000,Lao Dong,212,Xuan Dieu,0
+5451,Tinh Qua,282000,Hoi Nha Van,808,Xuan Dieu,0
+8337,Thu,363000,Tu Phap,849,Xuan Dieu,0
+8130,Bui Mua Mo Cu,836000,Tre,156,Xuan Dieu,0
+4490,Ngan Ngo,159000,Giao Duc,791,Xuan Dieu,0
+5964,Tinh Thu Nhat,523000,Lao Dong,976,Xuan Dieu,0
+8084,Xuan Dau,630000,Hoi Nha Van,461,Xuan Dieu,0
+1911,Luu Hoc Sinh,440000,Tre,527,Xuan Dieu,0

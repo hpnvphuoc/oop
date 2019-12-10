@@ -155,10 +155,13 @@
     <ClCompile Include="author.cpp" />
     <ClCompile Include="bill.cpp" />
     <ClCompile Include="Book.cpp" />
+    <ClCompile Include="account.cpp" />
     <ClCompile Include="guest.cpp" />
     <ClCompile Include="listBill.cpp" />
     <ClCompile Include="listBook.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="message.cpp" />
+    <ClCompile Include="process.cpp" />
     <ClCompile Include="publisher.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="user.cpp" />
@@ -168,10 +171,13 @@
     <ClInclude Include="author.h" />
     <ClInclude Include="bill.h" />
     <ClInclude Include="book.h" />
+    <ClInclude Include="account.h" />
     <ClInclude Include="guest.h" />
     <ClInclude Include="listBill.h" />
     <ClInclude Include="listBook.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="message.h" />
+    <ClInclude Include="process.h" />
     <ClInclude Include="publisher.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>

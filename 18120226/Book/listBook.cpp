@@ -8,15 +8,22 @@ listBook::listBook()
 
 void listBook::inputList(int numKind)
 {
-	this->numKind = numKind;
-	this->list = new book[numKind];
+	this->numKind += numKind;
+	book* temp = new book[this->numKind];
+	for (int i = 0; i < this->numKind - numKind; i++) {
+		temp[i] = list[i];
+	}
+	for (int i = 0; i < this->numKind - numKind; i++) {
+		list[i].~book();
+	}
+	list = temp;
 	string tempIBSN;
 	string tempName;
 	int tempPrice;
 	string tempPublisher;
 	int tempNumber;
 	string tempAuthor;
-	for (int i = 0; i < numKind; i++) {
+	for (int i = this->numKind-numKind; i < this->numKind; i++) {
 			cout << "Sach " << i << endl;
 			cin.ignore();
 			cout << "Ma sach: ";
@@ -30,68 +37,95 @@ void listBook::inputList(int numKind)
 			cin.ignore();
 
 			cout << "Nha xuat ban: ";
-			cin>> tempPublisher;
+			getline(cin,tempPublisher);
 
 			cout << "So luong: ";
 			cin >> tempNumber;
 			cin.ignore();
 
 			cout << "Tac gia: ";
-			cin >> tempAuthor;
+			getline(cin,tempAuthor);
 
-			list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber,tempAuthor);
+			list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber,tempAuthor,false);
 		}
 }
 	
 
-void listBook::outputList() {
-	cout << "STT" << setw(9) << "IBSN" << setw(9) << "TEN" << setw(15) << "GIA" << setw(24) << "NHA XUAT BAN" << setw(15) << "SO LUONG" <<setw(15)<<"TAC GIA"<< endl;
-	for (int i = 0; i < numKind; i++) {
-		cout <<left << setw(8) << i <<left<<setw(10)<<list[i].getIBSN() <<left<<setw(15) <<list[i].getName() <<left<<setw(15) <<list[i].getPrice() <<left<<setw(20)<<list[i].getPublisher()<<left<<setw(15)<<list[i].getNumber()<<left<<setw(5)<<list[i].getAuthor()<< endl;
+void listBook::outputList(int role,bool header) {
+	if (header) {
+		cout << "STT" << setw(9) << "IBSN" << setw(10) << "TEN" << setw(15) << "GIA" << setw(23) << "NHA XUAT BAN" << setw(15) << "SO LUONG" << setw(15) << "TAC GIA" << endl;
 	}
+	
+	if(-1==role){
+		for (int i = 0; i < numKind; i++) {
+			cout << left << setw(8) << i << left << setw(10) << list[i].getIBSN() << left << setw(15) << list[i].getName() << left << setw(15) << list[i].getPrice() << left << setw(20) << list[i].getPublisher() << left << setw(15) << list[i].getNumber() << left << setw(5) << list[i].getAuthor() << endl;
+		}
+	}
+	else {
+		for (int i = 0; i < numKind; i++) {
+			if(list[i].IsBlock()==role)
+			cout << left << setw(8) << i << left << setw(10) << list[i].getIBSN() << left << setw(15) << list[i].getName() << left << setw(15) << list[i].getPrice() << left << setw(20) << list[i].getPublisher() << left << setw(15) << list[i].getNumber() << left << setw(5) << list[i].getAuthor() << endl;
+		}
+	}
+	
 }
-void listBook::printElementI(int index)
+void listBook::printElementI(int index,int role,bool header)
 {
-	cout <<setw(8)<< "STT" << setw(10) << "IBSN" << setw(15) << "TEN" << setw(15) << "GIA" << setw(20) << "NHA XUAT BAN" << setw(15) << "SO LUONG" << setw(15) << "TAC GIA" << endl;
-	cout << left << setw(8) << index << left << setw(10) << list[index].getIBSN() << left << setw(15) << list[index].getName() << left << setw(15) << list[index].getPrice() << left << setw(20) << list[index].getPublisher() << left << setw(15) << list[index].getNumber() << left << setw(5) << list[index].getAuthor() << endl;
+	if (header) {
+		cout << setw(8) << "STT" << setw(10) << "IBSN" << setw(15) << "TEN" << setw(15) << "GIA" << setw(20) << "NHA XUAT BAN" << setw(15) << "SO LUONG" << setw(15) << "TAC GIA" << endl;
+	}
+	if (list[index].IsBlock() == role) {//in ra sach bi block boi ai do
+		cout << left << setw(8) << index << left << setw(10) << list[index].getIBSN() << left << setw(15) << list[index].getName() << left << setw(15) << list[index].getPrice() << left << setw(20) << list[index].getPublisher() << left << setw(15) << list[index].getNumber() << left << setw(5) << list[index].getAuthor() << endl;
+
+	}
+		
+}
+void listBook::printHeader()
+{
+	cout << setw(8) << "STT" << setw(10) << "IBSN" << setw(15) << "TEN" << setw(15) << "GIA" << setw(20) << "NHA XUAT BAN" << setw(15) << "SO LUONG" << setw(15) << "TAC GIA" << endl;
+
+}
+void listBook::printNameBookI(int index)
+{
+	cout <<setw(20)<< list[index].getName();
 }
 int listBook::getNumKind()
 {
 	return numKind;
 }
 
-int listBook::findBookByName(string name)
+vector<int> listBook::findBookByName(string name)
 {
-
+	vector<int> temp;
 	for (int i = 0; i < this->numKind; i++) {
 		if (this->list[i].getName() == name) {
-			return i;
+			temp.push_back(i);
 		}
 	}
-	return -1;
+	return temp;
 }
 
-int listBook::findBookByPublisher(string publiser)
+vector<int> listBook::findBookByPublisher(string publisher)
 {
+	vector<int> temp;
 	for (int i = 0; i < this->numKind; i++) {
-		if (this->list[i].getPublisher() == publiser) {
-			return i;
+		if (this->list[i].getPublisher()==publisher ) {
+			temp.push_back(i);
 		}
 	}
-	return -1;
+	return temp;
 
 }
 
-int listBook::findBookByAuthor(string author)
+vector<int> listBook::findBookByAuthor(string author)
 {
+	vector<int> temp;
 	for (int i = 0; i < this->numKind; i++) {
 		if (this->list[i].getAuthor()== author) {
-			return i;
+			temp.push_back(i);
 		}
 	}
-	return -1;
-
-	return 0;
+	return temp;
 }
 
 bool listBook::deleteBook(int index)
@@ -124,20 +158,25 @@ void listBook::addBook(book &b) {
 
 }
 
+void listBook::updateBook(int index,book& newbook)
+{
+	list[index] = newbook;
+}
+
 book listBook::getBookI(int index)
 {
 	return list[index];
 }
+void listBook::BlockBookI(int index,int role)
+{
+	list[index].Block(role);
+}
+void listBook::UnBlockBookI(int index)
+{
+	list[index].UnBlock();
+}
 listBook::~listBook()
 {
-}
-
-string cutstring(string& s) {
-	int pos = s.find(',');
-	string a;
-	a = s.substr(0, pos);
-	s.erase(0, pos + 1);
-	return a;
 }
 
 void listBook::readListBookFromFile()
@@ -150,6 +189,7 @@ void listBook::readListBookFromFile()
 	string tempPublisher;
 	int tempNumber;
 	string tempAuthor;
+	bool tempIsBlock;
 	fstream f;
 	f.open("listBook.txt", ios::in);
 	getline(f, tempNumkind);
@@ -157,13 +197,14 @@ void listBook::readListBookFromFile()
 	this->list = new book[numKind];
 	for(int i=0;i<numKind;i++){
 		getline(f,tempBook);
-		tempIBSN = cutstring(tempBook);
-		tempName = cutstring(tempBook);
-		tempPrice = stoi(cutstring(tempBook));
-		tempPublisher = cutstring(tempBook);
-		tempNumber = stoi(cutstring(tempBook));
-		tempAuthor = cutstring(tempBook);
-		list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber, tempAuthor);
+		tempIBSN = message::cutstring(tempBook);
+		tempName = message::cutstring(tempBook);
+		tempPrice = stoi(message::cutstring(tempBook));
+		tempPublisher = message::cutstring(tempBook);
+		tempNumber = stoi(message::cutstring(tempBook));
+		tempAuthor = message::cutstring(tempBook);
+		tempIsBlock = stoi(message::cutstring(tempBook));
+		list[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber, tempAuthor,tempIsBlock);
 	}
 	f.close();
 }
@@ -174,7 +215,7 @@ void listBook::writeListBookToFile()
 	f.open("listbook.txt", ios::out);
 	f <<numKind<<endl;
 	for (int i = 0; i < numKind; i++) {
-		f << list[i].getIBSN() << "," << list[i].getName() << "," << list[i].getPrice() << "," << list[i].getPublisher() << "," << list[i].getNumber() << "," << list[i].getPublisher() << endl;
+		f << list[i].getIBSN() << "," << list[i].getName() << "," << list[i].getPrice() << "," << list[i].getPublisher() << "," << list[i].getNumber() << "," << list[i].getAuthor() <<","<<list[i].IsBlock()<< endl;
 	}
 	f.close();
 }

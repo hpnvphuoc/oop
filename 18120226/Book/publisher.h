@@ -1,14 +1,29 @@
 #pragma once
+#include"account.h"
 #include<iostream>
+#include"book.h"
 using namespace std;
-class publisher
+class publisher:public account
 {
 private:
-	string username;
-	string password;
-	string name;
+	vector<int> bookList;
 public:
 	publisher();
+
+	void writePublisherToFile(publisher* list, int number);
+	publisher* readPublisherFromFile();
+	
+	string getUsername();
+	string getName();
+	string getPassword();
+	string getID();
+
+	void setName(string name);
+
+	void CreatePublisher(string& ID, string& Username, string& Password, string& name);
+	void CheckBook(listBook& list);
+	void GetBook(listBook& list);
+
 	~publisher();
 };
 
