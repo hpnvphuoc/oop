@@ -6,6 +6,11 @@ listBook::listBook()
 	this->numKind = 0;
 }
 
+void listBook::createListbook(book*& list)
+{
+	this->list = list;
+}
+
 void listBook::inputList(int numKind)
 {
 	this->numKind += numKind;

@@ -1,20 +1,17 @@
 #pragma once
 #include"user.h"
-struct bill {
-	string username;
-	string IBSN;
-	int number;
-	int price;
-};
 class listBill
 {
 private:
-	vector<bill> list;
+	user* list;
+	int numbill;
 public:
 	listBill();
 	void WriteListBillToFile();
 	void LoadListBillFormFile();
-	void addBill(string username, string IBSN, int number, int price);
+	void addBill(user&usr);
+	void OutputListbill();
+	int size();
 	~listBill();
 };
 

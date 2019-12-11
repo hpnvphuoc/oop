@@ -11,6 +11,7 @@ class process
 private:
 	listBook list;
 	account usr;
+	listBill bill;
 	int role;
 	int command;
 	int tempCommand;

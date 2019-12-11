@@ -20,15 +20,21 @@ private:
 public:
 	user();
 	string GetName();
+	string GetUsername();
+	string GetPassword();
+	int GetRole();
+	string GetID();
+	bill GetBill();
+
 	void SignUp(vector<account>& list_account);
-	int  addBill(listBook&list,int index=0);
-	void DeleteBill();
-	void checkBill(listBook&list);
-	void updateBill();
+	void  addBill(listBook&list,int index,int number);
+	//void DeleteBill();
+	void checkBill();
+	//void updateBill();
 	void checkoutBill();
 	void WriteMessage(string name);
 	void ReadMessage(string receiver);
-	void CreateUser(string ID, string username, string password, string name);
+	void CreateUser(string ID, string username, string password, string name,bill b);
 	//void getNumber();
 	~user();
 };

@@ -15,7 +15,7 @@ public:
 	void readListBookFromFile();
 	void writeListBookToFile();
 
-	
+	void createListbook(book*& list);
 	void inputList(int numKind);
 	void outputList(int role=-1,bool header=true);
 	int getNumKind();

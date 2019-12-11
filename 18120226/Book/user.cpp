@@ -2,6 +2,10 @@ using namespace std;
 #include "user.h"
 user::user()
 {	
+	ID = "";
+	username = "";
+	password = "";
+	name = "";
 }
 
 string user::GetName()
@@ -34,24 +38,26 @@ user::~user()
 {
 }
 
-int user::addBill(listBook&list,int index) {
-	return userBill.addBill(list,index);
+void user::addBill(listBook&list,int index,int number) {
+	userBill.addBill(list, index, number);
 }
 
-void user::DeleteBill()
-{
-	userBill.deleteBill();
-	
+//void user::DeleteBill()
+//{
+//	userBill.deleteBill();
+//	
+//}
+
+void user::checkBill() {
+	cout << "username" << this->username << endl;
+	cout << "password" << this->password << endl;
+	userBill.checkBill();
 }
 
-void user::checkBill(listBook&list) {
-	userBill.checkBill(list);
-}
-
-void user::updateBill()
-{
-	userBill.updateBill();
-}
+//void user::updateBill()
+//{
+//	userBill.updateBill();
+//}
 
 void user::checkoutBill()
 {
@@ -71,12 +77,34 @@ void user::ReadMessage(string receiver) {
 	}
 }
 
-void user::CreateUser(string ID, string username, string password, string name)
+void user::CreateUser(string ID, string username, string password, string name, bill b)
 {
 	this->ID = ID;
 	this->username = username;
 	this->password = password;
 	this->name = name;
 	this->role = 4;
+	this->userBill = b;
+}
+int user::GetRole()
+{
+	return role;
+}
+string user::GetID()
+{
+	return ID;
+}
+bill user::GetBill()
+{
+	return userBill;
 }
 
+string user::GetUsername()
+{
+	return this->username;
+}
+
+string user::GetPassword()
+{
+	return this->password;
+}

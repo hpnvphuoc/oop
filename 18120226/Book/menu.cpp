@@ -31,7 +31,7 @@ void menu::printUserMenu()
 
 void menu::printAdminMenu()
 {
-	cout << "1. Xem sach" << endl;
+	/*cout << "1. Xem sach" << endl;
 	cout << "2. Them sach" << endl;
 	cout << "3. Xoa sach" << endl;
 	cout << "4. Sua thong tin sach" << endl;
@@ -42,7 +42,11 @@ void menu::printAdminMenu()
 	cout << "9. Them tai khoan" << endl;
 	cout << "10. Xoa tai khoan " << endl;
 	cout << "11. Cap nhat tai khoan" << endl;
-	cout << "12. Thoat" << endl;
+	cout << "12. Thoat" << endl;*/
+	cout << "1. Xuat danh sach nguoi dung" << endl;
+	cout << "2. Xuat hoa don" << endl;
+	cout << "3. Xem NXB co tien thanh toan nhieu nhat" << endl;
+	cout << "4. Thoat" << endl;
 }
 
 void menu::printCommonMenu()

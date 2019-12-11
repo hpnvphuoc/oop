@@ -69,6 +69,10 @@ int book::IsBlock()
 {
 	return isBlock;
 }
+void book::setNumber(int number)
+{
+	this->number=number
+}
 void book::Block(int role)
 {
 	isBlock = role;
