@@ -57,151 +57,151 @@ void process::Process()
 				admin ad;
 				ad.CreateAccount(usr);
 				ad.getAllAccount("account.txt");
-				while (tempCommand != 4) {
+				while (tempCommand != 15) {
 					menu.printAdminMenu();
 					cin >> tempCommand;
 					switch (tempCommand)
 					{
-						//case 1: {
-						//	list.outputList();
-						//	break;
-						//}//xem sach cua minh
+						case 1: {
+							list.outputList();
+							break;
+						}//xem sach cua minh
 
-						//case 2://them sach cua minh
-						//{int number;
-						//cout << "Nhap so sach can them :";
-						//cin >> number;
-						//list.inputList(number);
-						//cout << "Them sach thanh cong" << endl;
-						//break;
-						//}
-						//case 3:
-						//{//xoa sach cua minh
-						//	list.outputList();
-						//	int index;
-						//	cout << "Nhap so thu tu sach muon xoa" << endl;
-						//	cin >> index;
-						//	list.deleteBook(index);
-						//	cout << "Xoa sach thanh cong" << endl;
-						//	break;
-						//}
-						//case 4://update sach
-						//{
-						//	int index;
-						//	cout << "Nhap STT sach can cap nhat";
-						//	cin >> index;
-						//	book temp;
-						//	temp.CreateBook();
-						//	list.updateBook(index, temp);
-						//	cout << "Cap nhat sach thanh cong" << endl;
-						//	break;
-						//}
-						//case 5://block sach;
-						//{
-						//	int index;
-						//	cout << "Chon STT sach can khoa: ";
-						//	cin >> index;
-						//	list.BlockBookI(index, role);
-						//	cout << "Khoa sach thanh cong" << endl;
-						//	break;
-						//}
-						//case 6: //mo khoa sach
-						//{
-						//	int index;
-						//	cout << "Chon STT sach can mo khoa: ";
-						//	cin >> index;
-						//	list.UnBlockBookI(index);
-						//	break;
-						//}
-						//case 7://xem tin nhan
-						//{
-						//	ad.ReadMessage(ad.GetName());
-						//	break;
-						//}
-						//case 8: //Nhan tin nhan
-						//{
-						//	ad.WriteMessage(ad.GetName());
-						//	cout << "Gui thu thanh cong" << endl;
-						//	break;
-						//}
-						//case 9://Them tai khoan
-						//{
-						//	ad.AddAccount();
-						//	cout << "Them tai khoan thanh cong" << endl;
-						//	break;
-						//}
-						//case 10://Xoa tai khoan
-						//{
-						//	ad.OutputListAccount();
-						//	ad.DeleteAccount();
-						//	cout << "Xoa tai khoan thanh cong" << endl;
-						//	break;
-						//}
-						//case 11: //cap nhat tai khoan 
-						//{
-						//	ad.OutputListAccount();
-						//	ad.UpdateAccount();
-						//	cout << "Cap nhat tai khoan thanh cong" << endl;
-						//	break;
-						//}
-						//case 12: {
-						//	list.writeListBookToFile();
-						//	ad.WriteListAccountToFile();
-						//	break;
-						//}
-					case 1://xuat tat ca tai khoan
-					{
-						ad.OutputListAccount();
+						case 2://them sach cua minh
+						{int number;
+						cout << "Nhap so sach can them :";
+						cin >> number;
+						list.inputList(number);
+						cout << "Them sach thanh cong" << endl;
 						break;
-					}
-
-					case 2://xuat mang hoa don
-					{
-						list_bill.OutputListbill();
-						break;
-					}
-
-					case 3://so tien thanh toan nhieu nhat
-					{
-						vector<string> Publisher;
-						vector<int> total;
-						listBook item;
-						item = list_bill.getListItem();
-						string tempPub;
-						book temp;
-						for (int i = 0; i < item.getNumKind(); i++)
+						}
+						case 3:
+						{//xoa sach cua minh
+							list.outputList();
+							int index;
+							cout << "Nhap so thu tu sach muon xoa" << endl;
+							cin >> index;
+							list.deleteBook(index);
+							cout << "Xoa sach thanh cong" << endl;
+							break;
+						}
+						case 4://update sach
 						{
-							temp = item.getBookI(i);
-							Publisher.push_back(temp.getPublisher());
-							total.push_back(temp.getPrice() * temp.getNumber());
+							int index;
+							cout << "Nhap STT sach can cap nhat";
+							cin >> index;
+							book temp;
+							temp.CreateBook();
+							list.updateBook(index, temp);
+							cout << "Cap nhat sach thanh cong" << endl;
+							break;
 						}
-						for (int i = 0; i < Publisher.size(); i++) {
-							for (int j = i + 1; j < Publisher.size(); j++) {
-								if (Publisher[i] == Publisher[j]) {
-									Publisher.erase(Publisher.begin() + j);
-									total.at(i) = total.at(i) + total.at(j);
-									total.erase(total.begin() + j);
-								}
-								if (i == Publisher.size()) {
-									break;
+						case 5://block sach;
+						{
+							int index;
+							cout << "Chon STT sach can khoa: ";
+							cin >> index;
+							list.BlockBookI(index, role);
+							cout << "Khoa sach thanh cong" << endl;
+							break;
+						}
+						case 6: //mo khoa sach
+						{
+							int index;
+							cout << "Chon STT sach can mo khoa: ";
+							cin >> index;
+							list.UnBlockBookI(index);
+							break;
+						}
+						case 7://xem tin nhan
+						{
+							ad.ReadMessage(ad.GetName());
+							break;
+						}
+						case 8: //Nhan tin nhan
+						{
+							ad.WriteMessage(ad.GetName());
+							cout << "Gui thu thanh cong" << endl;
+							break;
+						}
+						case 9://Them tai khoan
+						{
+							ad.AddAccount();
+							cout << "Them tai khoan thanh cong" << endl;
+							break;
+						}
+						case 10://Xoa tai khoan
+						{
+							ad.OutputListAccount();
+							ad.DeleteAccount();
+							cout << "Xoa tai khoan thanh cong" << endl;
+							break;
+						}
+						case 11: //cap nhat tai khoan 
+						{
+							ad.OutputListAccount();
+							ad.UpdateAccount();
+							cout << "Cap nhat tai khoan thanh cong" << endl;
+							break;
+						}
+							case 12://xuat tat ca tai khoan
+						{
+							ad.OutputListAccount();
+							break;
+						}
+
+						case 13://xuat mang hoa don
+						{
+							list_bill.OutputListbill();
+							break;
+						}
+
+						case 14://so tien thanh toan nhieu nhat
+						{
+							vector<string> Publisher;
+							vector<int> total;
+							listBook item;
+							item = list_bill.getListItem();
+							string tempPub;
+							book temp;
+							for (int i = 0; i < item.getNumKind(); i++)
+							{
+								temp = item.getBookI(i);
+								Publisher.push_back(temp.getPublisher());
+								total.push_back(temp.getPrice() * temp.getNumber());
+							}
+							for (int i = 0; i < Publisher.size(); i++) {
+								for (int j = i + 1; j < Publisher.size(); j++) {
+									if (Publisher[i] == Publisher[j]) {
+										Publisher.erase(Publisher.begin() + j);
+										total.at(i) = total.at(i) + total.at(j);
+										total.erase(total.begin() + j);
+									}
+									if (i == Publisher.size()) {
+										break;
+									}
 								}
 							}
-						}
-						int maxTotal = 0;
-						for (int i = 1; i < total.size(); i++) {
-							if (total.at(maxTotal) < total.at(i)) {
-								maxTotal = i;
+							int maxTotal = 0;
+							for (int i = 1; i < total.size(); i++) {
+								if (total.at(maxTotal) < total.at(i)) {
+									maxTotal = i;
+								}
 							}
+							cout << "Nha xuat ban co tien thanh toan nhieu nhat la:  " << endl;
+							cout << "Nha xuat ban " << Publisher[maxTotal] << endl;
+							cout << "So tien ";
+							cout << total.at(maxTotal) << endl;
+							break;
 						}
-						cout << "Nha xuat ban co tien thanh toan nhieu nhat la:  " << endl;
-						cout << "Nha xuat ban " << Publisher[maxTotal] << endl;
-						cout << "So tien ";
-						cout << total.at(maxTotal) << endl;
-						break;
-					}
-					case 4:
-					default:
-						break;
+						case 15: {
+							list.writeListBookToFile();
+							ad.WriteListAccountToFile();
+							break;
+						}
+					
+						default:
+							break;
 					}
 				}
 				break;
@@ -214,185 +214,186 @@ void process::Process()
 				publisher pub;
 
 				pub.CreateAccount(usr);
-				while (tempCommand != 2) {
+				while (tempCommand != 10) {
 					menu.printCommonMenu();
 					cin >> tempCommand;
 					pub.GetBook(list);
 					switch (tempCommand)
 					{
-					case 1: {//xem sach ban chay nhat
+					
+						  		case 1://xem sach cua minh
+						  		{
+						  			pub.CheckBook(list);
+						  			break;
+						  		}
+						  		case 2://cap nhat sach cua minh
+						  		{
+						  			pub.AddBook(list);
+						  			cout << "Them sach thanh cong" << endl;
+						  			break;
+						  		}
+						  		case 3://xoa sach cua minh
+						  		{
+						  			pub.DeleteBook(list);
+						  			cout << "Xoa sach thanh cong" << endl;
+						  			break;
+						  		}
+						  		case 4://update sach
+						  		{
+						  			pub.UpdateBook(list);
+						  			cout << "Cap nhat sach thanh cong" << endl;
+						  			break;
+						  		}
+						  		case 5://block sach;
+						  		{
+						  			int index;
+						  			cout << "Chon STT sach can khoa: ";
+						  			cin >> index;
+						  			pub.BlockBook(list, index);
+						  			break;
+						  		}
+						  		case 6: //mo khoa sach
+						  		{
+						  			int index;
+						  			cout << "Chon STT sach can mo khoa: ";
+						  			cin >> index;
+						  			pub.UnBlockBook(list, index);
+						  			break;
+						  		}
+						  		case 7://xem tin nhan
+						  		{
+						  			pub.ReadMessage(usr.GetName());
+						  			break;
+						  		}
+						  		case 8: //Nhan tin nhan
+						  		{
+						  			pub.WriteMessage(pub.GetName());
+						  			cout << "Gui thu thanh cong" << endl;
+						  			break;
+						  		}
+						  		
+								case 9: {//xem sach ban chay nhat
 
-						vector<string> book_name;
-						vector<int> number;
-						listBook item;
-						item = list_bill.getListItem();
-						string temp_book_name;
-						book temp;
-						for (int i = 0; i < item.getNumKind(); i++)
-						{
-							temp = item.getBookI(i);
-							book_name.push_back(temp.getName());
-							number.push_back(temp.getNumber());
-						}
-						for (int i = 0; i < book_name.size(); i++) {
-							for (int j = i + 1; j < book_name.size(); j++) {
-								if (book_name[i] == book_name[j]) {
-									book_name.erase(book_name.begin() + j);
-									number.at(i) = number.at(i) + number.at(j);
-									number.erase(number.begin() + j);
-								}
-								if (i == book_name.size()) {
-									break;
-								}
+										vector<string> book_name;
+										vector<int> number;
+										listBook item;
+										item = list_bill.getListItem();
+										string temp_book_name;
+										book temp;
+										for (int i = 0; i < item.getNumKind(); i++)
+										{
+											temp = item.getBookI(i);
+											book_name.push_back(temp.getName());
+											number.push_back(temp.getNumber());
+										}
+										for (int i = 0; i < book_name.size(); i++) {
+											for (int j = i + 1; j < book_name.size(); j++) {
+												if (book_name[i] == book_name[j]) {
+													book_name.erase(book_name.begin() + j);
+													number.at(i) = number.at(i) + number.at(j);
+													number.erase(number.begin() + j);
+												}
+												if (i == book_name.size()) {
+													break;
+												}
+											}
+										}
+										int maxNumber = 0;
+										for (int i = 1; i < number.size(); i++) {
+											if (number.at(maxNumber) < number.at(i)) {
+												maxNumber = i;
+											}
+										}
+										cout << "sach ban chay nhat la:  " << endl;
+										cout << "sach: " << book_name[maxNumber] << endl;
+										cout << "So luong ";
+										cout << number.at(maxNumber) << endl;
+										break;
+									}
+								case 10:
+									{
+										list.writeListBookToFile();
+										break;
+									}
+									default: break;
 							}
-						}
-						int maxNumber = 0;
-						for (int i = 1; i < number.size(); i++) {
-							if (number.at(maxNumber) < number.at(i)) {
-								maxNumber = i;
-							}
-						}
-						cout << "sach ban chay nhat la:  " << endl;
-						cout << "sach: " << book_name[maxNumber] << endl;
-						cout << "So luong ";
-						cout << number.at(maxNumber) << endl;
-						break;
-					}
-					default: break;
-						  //		case 1://xem sach cua minh
-						  //		{
-						  //			pub.CheckBook(list);
-						  //			break;
-						  //		}
-						  //		case 2://cap nhat sach cua minh
-						  //		{
-						  //			pub.AddBook(list);
-						  //			cout << "Them sach thanh cong" << endl;
-						  //			break;
-						  //		}
-						  //		case 3://xoa sach cua minh
-						  //		{
-						  //			pub.DeleteBook(list);
-						  //			cout << "Xoa sach thanh cong" << endl;
-						  //			break;
-						  //		}
-						  //		case 4://update sach
-						  //		{
-						  //			pub.UpdateBook(list);
-						  //			cout << "Cap nhat sach thanh cong" << endl;
-						  //			break;
-						  //		}
-						  //		case 5://block sach;
-						  //		{
-						  //			int index;
-						  //			cout << "Chon STT sach can khoa: ";
-						  //			cin >> index;
-						  //			pub.BlockBook(list, index);
-						  //			break;
-						  //		}
-						  //		case 6: //mo khoa sach
-						  //		{
-						  //			int index;
-						  //			cout << "Chon STT sach can mo khoa: ";
-						  //			cin >> index;
-						  //			pub.UnBlockBook(list, index);
-						  //			break;
-						  //		}
-						  //		case 7://xem tin nhan
-						  //		{
-						  //			pub.ReadMessage(usr.GetName());
-						  //			break;
-						  //		}
-						  //		case 8: //Nhan tin nhan
-						  //		{
-						  //			pub.WriteMessage(pub.GetName());
-						  //			cout << "Gui thu thanh cong" << endl;
-						  //			break;
-						  //		}
-						  //		case 9:
-						  //		{
-						  //			list.writeListBookToFile();
-						  //			break;
-						  //		}
-						  //		default:
-						  //			break;
-						  //		}
-					}
+
+					
 				}
 				break;
 			}
 
-			//case 3://author
-			//{
-			//	author auth;
-			//	auth.CreateAccount(usr);
-			//	while (tempCommand != 9) {
-			//		menu.printCommonMenu();
-			//		cin >> tempCommand;
-			//		auth.GetBook(list);
-			//		switch (tempCommand)
-			//		{
-			//		case 1://xem sach cua minh
-			//		{
-			//			auth.CheckBook(list);
-			//			break;
-			//		}
-			//		case 2://cap nhat sach cua minh
-			//		{
-			//			auth.AddBook(list);
-			//			cout << "Them sach thanh cong" << endl;
-			//			break;
-			//		}
-			//		case 3://xoa sach cua minh
-			//		{
-			//			auth.DeleteBook(list);
-			//			cout << "Xoa sach thanh cong" << endl;
-			//			break;
-			//		}
-			//		case 4://update sach
-			//		{
-			//			auth.UpdateBook(list);
-			//			cout << "Cap nhat sach thanh cong" << endl;
-			//			break;
-			//		}
-			//		case 5://block sach;
-			//		{
-			//			int index;
-			//			cout << "Chon STT sach can khoa: ";
-			//			cin >> index;
-			//			auth.BlockBook(list, index);
-			//			break;
-			//		}
-			//		case 6: //mo khoa sach
-			//		{
-			//			int index;
-			//			cout << "Chon STT sach can mo khoa: ";
-			//			cin >> index;
-			//			auth.UnBlockBook(list, index);
-			//			break;
-			//		}
-			//		case 7://xem tin nhan
-			//		{
-			//			usr.ReadMessage(usr.GetName());
-			//			break;
-			//		}
-			//		case 8: //Nhan tin nhan
-			//		{
-			//			auth.WriteMessage(auth.GetName());
-			//			cout << "Gui thu thanh cong" << endl;
-			//			break;
-			//		}
-			//		case 9: {
-			//			list.writeListBookToFile();
-			//			break;
-			//		}
-			//		default:
-			//			break;
-			//		}
+			case 3://author
+			{
+				author auth;
+				auth.CreateAccount(usr);
+				while (tempCommand != 9) {
+					menu.printCommonMenu();
+					cin >> tempCommand;
+					auth.GetBook(list);
+					switch (tempCommand)
+					{
+					case 1://xem sach cua minh
+					{
+						auth.CheckBook(list);
+						break;
+					}
+					case 2://cap nhat sach cua minh
+					{
+						auth.AddBook(list);
+						cout << "Them sach thanh cong" << endl;
+						break;
+					}
+					case 3://xoa sach cua minh
+					{
+						auth.DeleteBook(list);
+						cout << "Xoa sach thanh cong" << endl;
+						break;
+					}
+					case 4://update sach
+					{
+						auth.UpdateBook(list);
+						cout << "Cap nhat sach thanh cong" << endl;
+						break;
+					}
+					case 5://block sach;
+					{
+						int index;
+						cout << "Chon STT sach can khoa: ";
+						cin >> index;
+						auth.BlockBook(list, index);
+						break;
+					}
+					case 6: //mo khoa sach
+					{
+						int index;
+						cout << "Chon STT sach can mo khoa: ";
+						cin >> index;
+						auth.UnBlockBook(list, index);
+						break;
+					}
+					case 7://xem tin nhan
+					{
+						usr.ReadMessage(usr.GetName());
+						break;
+					}
+					case 8: //Nhan tin nhan
+					{
+						auth.WriteMessage(auth.GetName());
+						cout << "Gui thu thanh cong" << endl;
+						break;
+					}
+					case 9: {
+						list.writeListBookToFile();
+						break;
+					}
+					default:
+						break;
+					}
 
-			//	}
+				}
 
-			//}
+			}
 			case 4://user 
 			{
 				user u(usr);
@@ -484,80 +485,13 @@ void process::Process()
 			}
 		}
 		else {
-
+		if (2 == command) {
+			account::SignUp();
+			cout << "Dang ki thanh cong" << endl;
+			command = 1;
+			}
 		}
-		//else {
-		//	if (2 == command) {
-		//		guest* u=new guest;
-		//		int index=-1;
-		//		list.outputList(0);
-		//		while (4 != tempCommand) {
-		//			menu.printUserMenu();
-		//			cin >> tempCommand;
-		//			if (1 == tempCommand) {
-		//				string temp_name;
-		//				cout << "Vui long nhap ten sach can tim: " << endl;
-		//				cin.ignore();
-		//				getline(cin, temp_name);
-		//				vector<int> temp = list.findBookByName(temp_name);
-		//				if (temp.size() > 1) {
-		//					cout << "Vui long nhap ma sach can tim";
-		//					string tempIBSN;
-		//					getline(cin, tempIBSN);
-		//					for (int i = 0; i < temp.size(); i++) {
-		//						if (tempIBSN == list.getBookI(temp[i]).getIBSN()) {
-		//							index = temp[i];
-		//							break;
-		//						}
-		//					}
-		//				}
-		//				else {
-		//					if (temp.size() == 1) {
-		//						index = temp[0];
-		//						list.printElementI(index);
-		//					}
-		//					else {
-		//						index = -1;
-		//						cout << "Khong tim thay sach";
-		//					}
-		//				}
-		//			}
-		//			//else {
-		//				if (2 == tempCommand) {
 
-		//					while (usr.GetID()=="") {
-
-		//						login("account");
-		//					}
-		//					u = new user;
-		//					if (index == -1) {
-		//						cout << "Vui long chon sach can mua";
-		//						tempCommand = 1;
-		//					}
-		//					else {
-		//						book temp = list.getBookI(index);
-		//						u.addBill(temp);
-		//						cout << "Sach da duoc them vao gio hang" << endl;
-		//					}
-		//					
-		//				}
-		//				else {
-		//					if (3 == tempCommand) {
-		//						if (usr.GetID() != "") {
-		//							u->checkBill();
-		//						}
-		//						else {
-		//							cout << "Vui long dang nhap"<<endl;
-		//							tempCommand = 3;
-		//						}
-		//					}
-
-
-		//				}
-
-		//			}
-		//		}
-		//	}
 		}
 }
 

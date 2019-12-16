@@ -31,7 +31,7 @@ void menu::printUserMenu()
 
 void menu::printAdminMenu()
 {
-	/*cout << "1. Xem sach" << endl;
+	cout << "1. Xem sach" << endl;
 	cout << "2. Them sach" << endl;
 	cout << "3. Xoa sach" << endl;
 	cout << "4. Sua thong tin sach" << endl;
@@ -42,18 +42,16 @@ void menu::printAdminMenu()
 	cout << "9. Them tai khoan" << endl;
 	cout << "10. Xoa tai khoan " << endl;
 	cout << "11. Cap nhat tai khoan" << endl;
-	cout << "12. Thoat" << endl;*/
-	cout << "1. Xuat danh sach nguoi dung" << endl;
-	cout << "2. Xuat hoa don" << endl;
-	cout << "3. Xem NXB co tien thanh toan nhieu nhat" << endl;
-	cout << "4. Thoat" << endl;
+	cout << "12. Xuat danh sach nguoi dung" << endl;
+	cout << "13. Xuat hoa don" << endl;
+	cout << "14. Xem NXB co tien thanh toan nhieu nhat" << endl;
+	cout << "15. Thoat" << endl;
 }
 
 void menu::printCommonMenu()
 {
-	cout << "1. Xem sach ban chay nhat" << endl;
-	cout << "2.Thoat" << endl;
-	/*cout << "1. Xem sach" << endl;
+	
+	cout << "1. Xem sach" << endl;
 	cout << "2. Them sach" << endl;
 	cout << "3. Xoa sach" << endl;
 	cout << "4. Sua thong tin sach" << endl;
@@ -61,7 +59,9 @@ void menu::printCommonMenu()
 	cout << "6. Mo khoa sach" << endl;
 	cout << "7. Xem tin nhan" << endl;
 	cout << "8. Nhan tin" << endl;
-	cout << "9. Thoat" << endl;*/
+	cout << "9. Xem sach ban chay nhat" << endl;
+	cout << "10.Thoat" << endl;
+
 }
 
 void menu::printMenu()

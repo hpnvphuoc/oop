@@ -261,3 +261,30 @@ string account::GetAccountType(int role)
 		return "";
 	}
 }
+
+void account::SignUp()
+{
+	fstream f;
+	f.open("account.txt", ios::app);
+	string ID;
+	string username;
+	string password;
+	string name;
+	int role;
+	string box = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefjhijklmnopqrstuvwxyz0123456789";
+	int length = box.length();
+	for (int i = 0; i < 5; i++)
+	{
+		ID = ID+box[rand() % length];
+	}
+	cin.ignore();
+	cout << "Username: ";
+	getline(cin, username);
+	cout << "Password: ";
+	getline(cin, password);
+	cout << "Name";
+	getline(cin, name);
+	role = 4;
+	f << ID << "," << username << "," << password << "," << name << "," << role << endl;
+}
+

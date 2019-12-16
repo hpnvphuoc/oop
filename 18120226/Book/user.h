@@ -27,7 +27,6 @@ public:
 	string GetID();
 	bill GetBill();
 
-	void SignUp(vector<account>& list_account);
 	void  addBill(listBook&list,int index,int number);
 	void DeleteBill();
 	void checkBill();

@@ -41,6 +41,7 @@ public:
 
 	void setPassword(string newPass);
 	string GetAccountType(int role);
+	static void SignUp();
 };
 
 #endif // !ACCOUNT_H_

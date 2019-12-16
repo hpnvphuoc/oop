@@ -21,28 +21,6 @@ string user::GetName()
 {
 	return this->name;
 }
-
-void user::SignUp(vector<account>& list_account)
-{
-	string box = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefjhijklmnopqrstuvwxyz0123456789";
-	int length = box.length();
-	for (int i = 0; i < 5; i++)
-	{
-		ID[i] = box[rand() % length];
-	}
-	cout << "Username: ";
-	getline(cin, username);
-	cout << "Password: ";
-	getline(cin, password);
-	cout << "Name";
-	getline(cin, name);
-	role = 4;
-	account temp;
-	temp.SetAccount(ID, username, password, name, role);
-	list_account.push_back(temp);
-
-}
-
 user::~user()
 {
 }
