@@ -1,7 +1,6 @@
 #pragma once
 using namespace std;
 #include"listBook.h"
-#include"listBill.h"
 class bill
 {
 private:
@@ -15,8 +14,9 @@ public:
 	listBook getBill();
 	void setBill(listBook& list);
 	void printBill();
-	/*void updateBill();
-	void deleteBill();*/
+	void updateBill();
+	void deleteBill();
 	void checkout();
+	listBook getItem();
 };
 

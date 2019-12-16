@@ -7,7 +7,7 @@ listBill::listBill()
 void listBill::WriteListBillToFile()
 {
 	fstream f;
-	f.open("listBill.txt", ios::out);
+	f.open("listbill.txt", ios::out);
 	for (int i = 0; i < this->numbill; i++) {
 		f << list[i].GetID()<<","<<list[i].GetUsername()<<","<<list[i].GetPassword()<<list[i].GetName()<<endl;
 		list[i].GetBill().getBill().writeListBookToFile();
@@ -17,7 +17,7 @@ void listBill::WriteListBillToFile()
 void listBill::LoadListBillFormFile()
 {
 	fstream f;
-	f.open("listBill.txt", ios::in);
+	f.open("listbill.txt", ios::in);
 	string temp;
 	string ID;
 	string username;
@@ -31,12 +31,11 @@ void listBill::LoadListBillFormFile()
 	string tempPublisher;
 	int tempNumber;
 	string tempAuthor;
-	bool tempIsBlock;
-	int tempNumBill;
+	bool tempIsBlock;	
 	getline(f, temp);
-	tempNumBill = stoi(temp);
+	numbill = stoi(temp);
 	user t;
-	user* list = new user[tempNumBill];
+	user* list = new user[numbill];
 	int i = 0;
 	while (!f.eof()) {
 		getline(f, temp);
@@ -59,14 +58,14 @@ void listBill::LoadListBillFormFile()
 			tempIsBlock = stoi(message::cutstring(tempBook));
 			list_book[i].set(tempIBSN, tempName, tempPrice, tempPublisher, tempNumber, tempAuthor, tempIsBlock);
 		}
-		listBook b;
-		b.createListbook(list_book);
+		listBook b(list_book, numKind);
 		bill te;
 		te.setBill(b);
 		t.CreateUser(ID, username, password, name, te);
 		list[i] = t;
 		i++;
 	}
+	this->list = list;
 }
 
 
@@ -90,4 +89,15 @@ void listBill::OutputListbill()
 int listBill::size()
 {
 	return this->numbill;
+}
+
+listBook listBill::getListItem()
+{
+	listBook temp;
+	listBook result;
+	for (int i = 0; i < numbill; i++) {
+		temp = this->list[i].GetBill().getItem();
+		result = result.concatenate(temp);
+	}	
+	return result;
 }

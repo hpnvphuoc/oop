@@ -12,6 +12,7 @@ public:
 	void addBill(user&usr);
 	void OutputListbill();
 	int size();
+	listBook getListItem();
 	~listBill();
 };
 

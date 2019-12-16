@@ -6,9 +6,10 @@ listBook::listBook()
 	this->numKind = 0;
 }
 
-void listBook::createListbook(book*& list)
+listBook::listBook(book*& list,int number)
 {
 	this->list = list;
+	this->numKind = number;
 }
 
 void listBook::inputList(int numKind)
@@ -93,6 +94,20 @@ void listBook::printHeader()
 void listBook::printNameBookI(int index)
 {
 	cout <<setw(20)<< list[index].getName();
+}
+listBook listBook::concatenate(listBook& list)
+{
+	int temNumKind = numKind + list.getNumKind();
+	book* temp = new book[temNumKind];
+	for (int i = 0; i < this->numKind; i++)
+	{
+		temp[i] = this->list[i];
+	}
+	for (int i = numKind; i < temNumKind; i++) {
+		temp[i] = list.getBookI(i-numKind);
+	}
+	listBook bookList(temp, temNumKind);
+	return bookList;
 }
 int listBook::getNumKind()
 {
@@ -182,9 +197,14 @@ void listBook::UnBlockBookI(int index)
 }
 listBook::~listBook()
 {
+	//if (list != nullptr) {
+	//	delete[]list;
+	//	list = NULL;
+	//	this->numKind = 0;
+	//}
 }
 
-void listBook::readListBookFromFile()
+void listBook::readListBookFromFile(const string file_name)
 {
 	string tempNumkind;
 	string tempBook;
@@ -196,7 +216,7 @@ void listBook::readListBookFromFile()
 	string tempAuthor;
 	bool tempIsBlock;
 	fstream f;
-	f.open("listBook.txt", ios::in);
+	f.open(file_name, ios::in);
 	getline(f, tempNumkind);
 	numKind = stoi(tempNumkind);
 	this->list = new book[numKind];

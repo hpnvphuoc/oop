@@ -19,6 +19,7 @@ private:
 	vector<message> mess;
 public:
 	user();
+	user(account& user);
 	string GetName();
 	string GetUsername();
 	string GetPassword();
@@ -28,9 +29,9 @@ public:
 
 	void SignUp(vector<account>& list_account);
 	void  addBill(listBook&list,int index,int number);
-	//void DeleteBill();
+	void DeleteBill();
 	void checkBill();
-	//void updateBill();
+	void updateBill();
 	void checkoutBill();
 	void WriteMessage(string name);
 	void ReadMessage(string receiver);

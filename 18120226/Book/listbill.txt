@@ -1,0 +1,20 @@
+4
+sdjs,user,user,user,4
+2
+123,Harry Potter,100000,Tre,5,J.K.Rowling,0
+125,Truyen Kieu,30000,Giao Duc,500,Nguyen Du,0
+dfhs,Phuoc,Phuoc,Phuoc,4
+1
+123,Harry Potter,100000,Tre,5,J.K.Rowling,0
+dfhs,Tan,tan,Phuoc,4
+7
+9489,Giang Sang,238000,Hoi Nha Van,5,Nam Cao,0
+8177,Doi Mat,671000,Tu Phap,5,Nam Cao,0
+6702,Lao Hac,301000,Tre,5,Nam Cao,0
+5445,Ngheo,349000,Giao Duc,5,Nam Cao,0
+9686,Trang sang,888000,Lao Dong,5,Nam Cao,0
+5892,Dieu van,884000,Hoi Nha Van,5,Nam Cao,0
+9532,Mot cai chet,207000,Tu Phap,5,Vu Trong Phung,0
+djafk,test,test,test,4
+1
+6702,Lao Hac,301000,Tre,809,Nam Cao,0

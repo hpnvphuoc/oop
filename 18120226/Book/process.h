@@ -6,12 +6,13 @@
 #include"author.h"
 #include"admin.h"
 #include"listBill.h"
+
 class process
 {
 private:
 	listBook list;
 	account usr;
-	listBill bill;
+	listBill list_bill;
 	int role;
 	int command;
 	int tempCommand;
@@ -19,7 +20,6 @@ private:
 public:
 	process();
 	~process();
-	int GetRole();
 	account* login(const string& file_name);
 	void LoadData();
 	void Process();

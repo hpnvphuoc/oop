@@ -8,6 +8,15 @@ user::user()
 	name = "";
 }
 
+user::user(account& user)
+{
+	this->ID = user.GetID();
+	this->username = user.GetUsername();
+	this->password = user.GetPassword();
+	this->name = user.GetName();
+	this->role = user.GetRole();
+}
+
 string user::GetName()
 {
 	return this->name;
@@ -42,22 +51,22 @@ void user::addBill(listBook&list,int index,int number) {
 	userBill.addBill(list, index, number);
 }
 
-//void user::DeleteBill()
-//{
-//	userBill.deleteBill();
-//	
-//}
+void user::DeleteBill()
+{
+	userBill.deleteBill();
+	
+}
 
 void user::checkBill() {
-	cout << "username" << this->username << endl;
+	cout << "username: " << this->username << endl;
 	cout << "password" << this->password << endl;
 	userBill.checkBill();
 }
 
-//void user::updateBill()
-//{
-//	userBill.updateBill();
-//}
+void user::updateBill()
+{
+	userBill.updateBill();
+}
 
 void user::checkoutBill()
 {
@@ -96,7 +105,7 @@ string user::GetID()
 }
 bill user::GetBill()
 {
-	return userBill;
+	return this->userBill;
 }
 
 string user::GetUsername()

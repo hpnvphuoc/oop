@@ -71,7 +71,7 @@ int book::IsBlock()
 }
 void book::setNumber(int number)
 {
-	this->number=number
+	this->number = number;
 }
 void book::Block(int role)
 {

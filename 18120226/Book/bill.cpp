@@ -15,9 +15,7 @@ void bill::addBill(listBook&list,int index,int number) {
 }
 
 void bill::checkBill() {
-	for (int i = 0; i < bookList.getNumKind(); i++) {
-		bookList.outputList();
-	}
+	bookList.outputList();
 }
 
 listBook bill::getBill()
@@ -35,31 +33,39 @@ void bill::printBill()
 	bookList.outputList();
 }
 
-//void bill::updateBill()
-//{
-//	b temp;
-//	cout << "Nhap STT sach can cap nhat";
-//	cin >> temp.index;
-//	cout << "Nhap so luong moi";
-//	cin >> temp.number;
-//	list_bill[temp.index] = temp;
-//	cout << "Cap nhat hoa don thanh cong" << endl;
-//}
+void bill::updateBill()
+{
+	int index;
+	int number;
+	cout << "Nhap STT sach can cap nhat";
+	cin >> index;
+	cout << "Nhap so luong moi";
+	cin >> number;
+	book temp = bookList.getBookI(index);
+	temp.setNumber(number);
+	bookList.updateBook(index,temp);
+	cout << "Cap nhat hoa don thanh cong" << endl;
+}
 
-//void bill::deleteBill()
-//{
-//	int index;
-//	cout << "Nhap vao STT sach muon xoa: ";
-//	cin >> index;
-//	list_bill.erase(list_bill.begin() + index);
-//}
+void bill::deleteBill()
+{
+	int index;
+	cout << "Nhap vao STT sach muon xoa: ";
+	cin >> index;
+	bookList.deleteBook(index);
+}
 
 void bill::checkout()
 {
 	for (int i = 0; i < bookList.getNumKind(); i++) {
 		total = total +bookList.getBookI(i).getNumber() * bookList.getBookI(i).getPrice();
 	}
-	cout << "Tong tien ban can phai thanh toan la: ";
+	cout << "Tong tien ban can phai thanh toan la: " << endl;
 	cout << total;
+}
+
+listBook bill::getItem()
+{
+	return this->bookList;
 }
 

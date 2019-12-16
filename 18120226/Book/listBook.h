@@ -11,11 +11,13 @@ private:
 	int numKind;
 public:
 	listBook();
+	listBook(book*& list, int number);
 	~listBook();
-	void readListBookFromFile();
+
+	void readListBookFromFile(const string file_name="listbook.txt");
 	void writeListBookToFile();
 
-	void createListbook(book*& list);
+	
 	void inputList(int numKind);
 	void outputList(int role=-1,bool header=true);
 	int getNumKind();
@@ -34,6 +36,7 @@ public:
 	void printElementI(int index, int role = 0, bool title = true );
 	void printHeader();
 	void printNameBookI(int index);
+	listBook concatenate(listBook& list);
 
 
 };
